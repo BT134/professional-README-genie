@@ -42,7 +42,7 @@ node index.js
 
 ## Visual Presentation
 
-><img src="" alt="">
+><img src=".\images\Professional README Generator Walkthrough.gif" alt="Gif of README Generator in operation">
 
 ## Screen Shot
 

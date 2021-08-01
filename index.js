@@ -2,7 +2,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
-const generateMarkdown = require('./utils/generateMarkdown.js')
 
 //Create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -14,16 +13,37 @@ const promptUser = () => {
         type: 'input',
         name: 'github',
         message: 'What is your Github username? (Required)',
+        // We need to validate that user entered at least one word
+        validate: function (answer) {
+          if (answer.length < 1) {
+              return console.log("You must enter a GitHub username.");
+          }
+          return true;
+      }
       },
       {
         type: 'input',
         name: 'email',
         message: 'What is your email address? (Required)',
+        // We need to validate that user entered at least one word
+        validate: function (answer) {
+          if (answer.length < 1) {
+              return console.log("You must enter the name of your GitHub repository.");
+          }
+          return true;
+      } 
       },
       {
         type: 'input',
         name: 'project',
         message: "What is your project's name? (Required)",
+        // We need to validate that user entered at least one word
+        validate: function (answer) {
+          if (answer.length < 1) {
+              return console.log("You must enter the title of your project.");
+          }
+          return true;
+      }
       },
       {
         type: 'input',
