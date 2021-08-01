@@ -44,6 +44,8 @@ node index.js
 
 ><img src=".\assets\Professional README Generator Walkthrough.gif" alt="Gif of README Generator in operation">
 
+>https://drive.google.com/file/d/1K7T5i0-krSJUldT6fRAP8_sYOunCLQBA/view?usp=sharing
+
 ## Screen Shot
 
 ><img src=".\assets\Screenshot-of-generated-README.JPG" alt="Screenshot of generated README file">
