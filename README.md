@@ -46,7 +46,7 @@ node index.js
 
 ## Screen Shot
 
-><img src="" alt="">
+><img src=".\images\Screenshot-of-generated-README.JPG" alt="Screenshot of generated README file">
 
 ## Built With
 
