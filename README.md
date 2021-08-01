@@ -1,6 +1,6 @@
 # Professional README Generator
 
-## Desciption
+## Description
 
 > This is a command-line application that dynamically generates a professional README.md file from a user's input using the [Inquirer package].
 
@@ -42,11 +42,11 @@ node index.js
 
 ## Visual Presentation
 
-><img src=".\images\Professional README Generator Walkthrough.gif" alt="Gif of README Generator in operation">
+><img src=".\assets\Professional README Generator Walkthrough.gif" alt="Gif of README Generator in operation">
 
 ## Screen Shot
 
-><img src=".\images\Screenshot-of-generated-README.JPG" alt="Screenshot of generated README file">
+><img src=".\assets\Screenshot-of-generated-README.JPG" alt="Screenshot of generated README file">
 
 ## Built With
 
