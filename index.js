@@ -2,13 +2,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const util = require('util');
+const markdown = require('./utils/generateMarkdown');
 
 //Create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
 
 //An array of questions for user input
-const promptUser = () => {
-    return inquirer.prompt([
+const promptUser = [
       {
         type: 'input',
         name: 'github',
@@ -78,63 +78,28 @@ const promptUser = () => {
         name: 'contribution',
         message: 'What does the user need to know about contributing to the repo?',
       },
-
-
-    ]);
-  };
+   
+  ];
   
-  const generateREADME = (answers) =>
-  `# ${answers.project}
-  
-  ## License:
-  [![license](https://img.shields.io/badge/license-${answers.license}-blue)](https://shields.io)
-  
-  ## Table of Contents 
-  - [Description](#description)
-  - [Installation](#installation)
-  - [Usage](#usage-information)
-  - [Installation](#installation)
-  - [Contributing](#contributing)
-  - [Testing](#testing)
-  - [Questions](#questions)
+//Function to write README file
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, err => {
+      if (err) {
+        return console.log(err);
+      }
+      console.log("Generating README...")
+  });
+}
 
-  ## Description:
-  > ${answers.description}
-
-  ## Installation:
-  > To install necessary dependencies, run the following command:
-  \`\`\`
-  ${answers.installation}
-  \`\`\`
-
-  ## Usage Information:
-  > ${answers.usage}
-
-  ## License:
-  > Licensed under ${answers.license}
-  ## Contributing:
-
-  > ${answers.contribution}
-  ## Testing:
-  > To run tests, run the following command:
- \`\`\`
-  ${answers.test}
- \`\`\`
-
-  ## Questions:
-  > For additional help or questions please contact me ${answers.email}
-
-  > Find and follow me on Github: [${answers.github}](https://github.com/${answers.github})`;
-
-
-//Create a function to initialize app
-const init = () => {
-    promptUser()
-      .then((answers) => writeFileAsync('README.md', generateREADME(answers)))
-      .then(() => console.log('Generating README...'))
-      .catch((err) => console.error(err));
-  };
+// TODO: Create a function to initialize app
+function init() {
+  inquirer.prompt(questions)
+  .then((response) => {
+      let readmeContent = markdown.generateMarkdown(response)
+  console.log(response);
+  writeToFile('README.md', readmeContent)
+  }
+)}
 
 // Function call to initialize app
 init();
-

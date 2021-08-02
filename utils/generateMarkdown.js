@@ -1,20 +1,47 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `
+  # ${data.project}
+  
+  ## License:
+  [![license](https://img.shields.io/badge/license-${data.license}-blue)](https://shields.io)
+  
+  ## Table of Contents 
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage-information)
+  - [Installation](#installation)
+  - [Contributing](#contributing)
+  - [Testing](#testing)
+  - [Questions](#questions)
 
-`;
-}
+  ## Description:
+  > ${data.description}
 
-module.exports = generateMarkdown;
+  ## Installation:
+  > To install necessary dependencies, run the following command:
+  \`\`\`
+  ${data.installation}
+  \`\`\`
+
+  ## Usage Information:
+  > ${data.usage}
+
+  ## License:
+  > Licensed under ${data.license}
+  ## Contributing:
+
+  > ${data.contribution}
+  ## Testing:
+  > To run tests, run the following command:
+ \`\`\`
+  ${data.test}
+ \`\`\`
+
+  ## Questions:
+  > For additional help or questions please contact me ${data.email}
+
+  > Find and follow me on Github: [${data.github}](https://github.com/${data.github})`
+};
+
+module.exports = { generateMarkdown };
